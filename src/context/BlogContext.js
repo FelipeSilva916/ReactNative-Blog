@@ -3,9 +3,11 @@ import React from "react";
 const BlogContext = React.createContext(); //Object with 2 properties: Provider and Consumer. Responsible for communicating data to all the children components.
 
 export const BlogProvider = ({ children }) => {
+  const blogPosts = [{ title: "Blog Post #1" }, { title: "Blog Post #2" }];
+
   return (
     <BlogContext.Provider
-      value={5} //This is the value that will be passed to all the children components.
+      value={blogPosts} //This is the value that will be passed to all the children components.
     >
       {children}
     </BlogContext.Provider>
