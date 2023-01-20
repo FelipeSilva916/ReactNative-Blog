@@ -5,6 +5,7 @@ const BlogContext = React.createContext(); //Object with 2 properties: Provider 
 const blogReducer = (state, action) => {
   switch (action.type) {
     case "add_blogPost":
+      console.log(state);
       return [...state, { title: `Blog Post #${state.length + 1}` }];
     default:
       return state;
