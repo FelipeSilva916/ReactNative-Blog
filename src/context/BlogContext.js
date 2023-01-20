@@ -1,13 +1,20 @@
 //Set up a context object that will be used to communicate data to all the children components.
-import React from "react";
+import React, { useState } from "react";
 const BlogContext = React.createContext(); //Object with 2 properties: Provider and Consumer. Responsible for communicating data to all the children components.
 
 export const BlogProvider = ({ children }) => {
-  const blogPosts = [{ title: "Blog Post #1" }, { title: "Blog Post #2" }];
+  const [blogPosts, setBlogPosts] = React.useState([]); //This is the data that will be passed to all the children components.
+
+  const addBlogPost = () => {
+    setBlogPosts([
+      ...blogPosts,
+      { title: `Blog Post #${blogPosts.length + 1}` }
+    ]);
+  };
 
   return (
     <BlogContext.Provider
-      value={blogPosts} //This is the value that will be passed to all the children components.
+      value={{ data: blogPosts, addBlogPost: addBlogPost }} //This is the value that will be passed to all the children components.
     >
       {children}
     </BlogContext.Provider>
