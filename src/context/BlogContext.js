@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const BlogContext = React.createContext(); //Object with 2 properties: Provider and Consumer. Responsible for communicating data to all the children components.
 
 export const BlogProvider = ({ children }) => {
-  const [blogPosts, setBlogPosts] = React.useState([]); //This is the data that will be passed to all the children components.
+  const [blogPosts, setBlogPosts] = useState([]); //This is the data that will be passed to all the children components.
 
   const addBlogPost = () => {
     setBlogPosts([

@@ -11,13 +11,16 @@ import BlogContext from "./context/BlogContext";
 import React, { useContext } from "react";
 
 const IndexScreen = () => {
-  const blogPosts = useContext(BlogContext); //value is the value that was passed to the BlogProvider component in App.js
+  const { data, addBlogPost } = useContext(BlogContext); //value is the value that was passed to the BlogProvider component in App.js
 
   return (
     <View>
       <Text>Index Screen</Text>
+
+      <Button title="Add Post" onPress={addBlogPost} />
+
       <FlatList
-        data={blogPosts}
+        data={data}
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item }) => {
           return (
