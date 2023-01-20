@@ -1,15 +1,21 @@
 //Set up a context object that will be used to communicate data to all the children components.
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 const BlogContext = React.createContext(); //Object with 2 properties: Provider and Consumer. Responsible for communicating data to all the children components.
 
+const blogReducer = (state, action) => {
+  switch (action.type) {
+    case "add_blogPost":
+      return [...state, { title: `Blog Post #${state.length + 1}` }];
+    default:
+      return state;
+  }
+};
+
 export const BlogProvider = ({ children }) => {
-  const [blogPosts, setBlogPosts] = useState([]); //This is the data that will be passed to all the children components.
+  const [blogPosts, dispatch] = useReducer(blogReducer, []); //This is the data that will be passed to all the children components.
 
   const addBlogPost = () => {
-    setBlogPosts([
-      ...blogPosts,
-      { title: `Blog Post #${blogPosts.length + 1}` }
-    ]);
+    dispatch({ type: "add_blogPost" });
   };
 
   return (
