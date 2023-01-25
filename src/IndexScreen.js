@@ -24,7 +24,9 @@ const IndexScreen = () => {
         renderItem={({ item }) => {
           return (
             <View style={styles.row}>
-              <Text style={styles.title}>{item.title}</Text>
+              <Text style={styles.title}>
+                {item.title} - {item.id}
+              </Text>
               <Feather style={styles.icon} name="trash" />
             </View>
           );
