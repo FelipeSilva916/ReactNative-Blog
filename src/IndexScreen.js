@@ -27,7 +27,9 @@ const IndexScreen = () => {
               <Text style={styles.title}>
                 {item.title} - {item.id}
               </Text>
-              <Feather style={styles.icon} name="trash" />
+              <TouchableOpacity onPress={() => console.log(item.id)}>
+                <Feather style={styles.icon} name="trash" />
+              </TouchableOpacity>
             </View>
           );
         }}
