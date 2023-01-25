@@ -7,11 +7,11 @@ import {
   Button,
   TouchableOpacity
 } from "react-native";
-import BlogContext from "./context/BlogContext";
+import { Context } from "./context/BlogContext";
 import React, { useContext } from "react";
 
 const IndexScreen = () => {
-  const { data, addBlogPost } = useContext(BlogContext); //value is the value that was passed to the BlogProvider component in App.js
+  const { state, addBlogPost } = useContext(Context); //value is the value that was passed to the BlogProvider component in App.js
 
   return (
     <View>
@@ -20,7 +20,7 @@ const IndexScreen = () => {
       <Button title="Add Post" onPress={addBlogPost} />
 
       <FlatList
-        data={data}
+        data={state}
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item }) => {
           return (
