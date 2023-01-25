@@ -12,7 +12,7 @@ import React, { useContext } from "react";
 import { Feather } from "@expo/vector-icons";
 
 const IndexScreen = () => {
-  const { state, addBlogPost } = useContext(Context); //value is the value that was passed to the BlogProvider component in App.js
+  const { state, addBlogPost, deleteBlogPost } = useContext(Context); //value is the value that was passed to the BlogProvider component in App.js
 
   return (
     <View>
@@ -27,7 +27,7 @@ const IndexScreen = () => {
               <Text style={styles.title}>
                 {item.title} - {item.id}
               </Text>
-              <TouchableOpacity onPress={() => console.log(item.id)}>
+              <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                 <Feather style={styles.icon} name="trash" />
               </TouchableOpacity>
             </View>
