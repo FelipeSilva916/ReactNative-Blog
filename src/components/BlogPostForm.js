@@ -9,8 +9,8 @@ import {
 } from "react-native";
 
 const BlogPostForm = ({ onSubmit, initialValues }) => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState(initialValues.title);
+  const [content, setContent] = useState(initialValues.content);
 
   return (
     <View>
@@ -26,9 +26,17 @@ const BlogPostForm = ({ onSubmit, initialValues }) => {
         value={content}
         onChangeText={(text) => setContent(text)}
       />
-      <Button title="Save Blog Post" />
+      <Button title="Save Blog Post" onPress={() => onSubmit(title, content)} />
     </View>
   );
+};
+
+BlogPostForm.defaultProps = {
+  //default values for the props
+  initialValues: {
+    title: "",
+    content: ""
+  }
 };
 
 const styles = StyleSheet.create({
