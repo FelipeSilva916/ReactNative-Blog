@@ -12,7 +12,7 @@ import React, { useContext } from "react";
 import { Feather } from "@expo/vector-icons";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, addBlogPost, deleteBlogPost } = useContext(Context); //value is the value that was passed to the BlogProvider component in App.js
+  const { state, deleteBlogPost } = useContext(Context); //value is the value that was passed to the BlogProvider component in App.js
 
   return (
     <View>
