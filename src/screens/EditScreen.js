@@ -1,10 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const EditScreen = () => {
+const EditScreen = ({ navigation }) => {
+  const id = navigation.getParam("id");
   return (
     <View>
-      <Text>Edit Screen</Text>
+      <Text>Edit Screen - {id} </Text>
     </View>
   );
 };
