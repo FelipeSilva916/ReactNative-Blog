@@ -7,7 +7,7 @@ import {
   Button,
   TouchableOpacity
 } from "react-native";
-import { Context } from "./context/BlogContext";
+import { Context } from "../context/BlogContext";
 import React, { useContext } from "react";
 import { Feather } from "@expo/vector-icons";
 
@@ -16,8 +16,6 @@ const IndexScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Button title="Add Post" onPress={addBlogPost} />
-
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.title}

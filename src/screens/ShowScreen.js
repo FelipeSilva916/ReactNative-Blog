@@ -6,7 +6,6 @@ const ShowScreen = ({ navigation }) => {
   const id = navigation.getParam("id");
   const { state } = useContext(Context);
   const blogPost = state.find((blogPost) => blogPost.id === id);
-  console.log(id, state);
 
   return (
     <View>
