@@ -14,7 +14,9 @@ import { Feather } from "@expo/vector-icons";
 const IndexScreen = ({ navigation }) => {
   const { state, deleteBlogPost, getBlogPosts } = useContext(Context); //value is the value that was passed to the BlogProvider component in App.js
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getBlogPosts();
+  }, []);
 
   return (
     <View>
