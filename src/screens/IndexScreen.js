@@ -8,11 +8,13 @@ import {
   TouchableOpacity
 } from "react-native";
 import { Context } from "../context/BlogContext";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Feather } from "@expo/vector-icons";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, deleteBlogPost } = useContext(Context); //value is the value that was passed to the BlogProvider component in App.js
+  const { state, deleteBlogPost, getBlogPosts } = useContext(Context); //value is the value that was passed to the BlogProvider component in App.js
+
+  useEffect(() => {}, []);
 
   return (
     <View>
